@@ -9,5 +9,10 @@ pipeline {
 				checkout scm
 			}
 		}
+		stage('Lint Dockerfile') {
+			steps {
+				sh 'hadolint Dockerfile'
+			}
+		}
 	}
 }
