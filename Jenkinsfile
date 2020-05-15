@@ -4,5 +4,10 @@ pipeline {
 		registry = "mfts/jitsi-meet-client"
    }
 	stages {
+		stage('Checkout Git') {
+			steps {
+				checkout scm
+			}
+		}
 	}
 }
