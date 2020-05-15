@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: apps/v1
+metadata: 
+  name: jitsi-meet
+  labels: 
+    app: jitsi-meet
+spec:
+  ports:
+    port: 3000,
+    targetPort: http-server
+selector:
+  app: jitsi-meet
+type: "LoadBalancer"
