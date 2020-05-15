@@ -35,7 +35,7 @@ pipeline {
 					sh "kubectl apply -f k8s/aws-auth-cm.yaml"
           sh "kubectl apply -f k8s/app-deployment.yml"
 					sh "kubectl set image deployments/jitsi-meet jitsi-meet=${registry}:latest"
-					sh "./update.sh eks-nodes-mfts k8s/nodes.yml k8s/nodes-params.json"
+					// sh "./update.sh eks-nodes-mfts k8s/nodes.yml k8s/nodes-params.json"
           sh "kubectl get nodes"
 					sh "kubectl get pods"
           sh "kubectl apply -f k8s/service.yml"
