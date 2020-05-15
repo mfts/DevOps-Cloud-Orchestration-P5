@@ -33,8 +33,8 @@ pipeline {
 				withAWS(region:'eu-central-1', credentials:'aws-jenkins') {
 					sh "aws eks --region eu-central-1 update-kubeconfig --name UdacityCapstoneMFTS-EKS"
 					sh "kubectl apply -f k8s/aws-auth-cm.yaml"
+          sh "kubectl apply -f k8s/app-deployment.yml"
 					sh "kubectl set image deployments/jitsi-meet jitsi-meet=${registry}:latest"
-					sh "kubectl apply -f k8s/app-deployment.yml"
 					sh "kubectl get nodes"
 					sh "kubectl get pods"
 					sh "../update.sh eks-udacity-nodes k8s/nodes.yml k8s/nodes-params.json"
