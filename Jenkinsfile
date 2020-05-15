@@ -31,7 +31,7 @@ pipeline {
 		stage('Deploy to AWS') {
 			steps {
 				withAWS(region:'eu-central-1', credentials:'aws-jenkins') {
-					sh "aws eks --region eu-central-1 update-kubeconfig --name UdacityCapstoneMFTS-EKS --role-arn arn:aws:iam::197566228641:role/eks-cluster-mfts-eksClusterRole-OVG8BPUYHQ1R"
+					sh "aws eks --region eu-central-1 update-kubeconfig --name UdacityCapstoneMFTS-EKS --role-arn arn:aws:iam::197566228641:role/eks-nodes-mfts-NodeInstanceRole-1G4HEWABL543A"
 					sh "kubectl apply -f k8s/aws-auth-cm.yaml"
 					sh "kubectl set image deployments/jitsi-meet jitsi-meet=${registry}:latest"
 					sh "kubectl apply -f k8s/app-deployment.yml"

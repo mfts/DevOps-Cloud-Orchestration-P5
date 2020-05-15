@@ -12,6 +12,6 @@ data:
         - system:nodes
   mapUsers: | 
     - userarn: arn:aws:iam::197566228641:user/Jenkins 
-      username: designated_user 
+      username: Jenkins 
       groups: 
         - system:masters
