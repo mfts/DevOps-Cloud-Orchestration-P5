@@ -10,3 +10,8 @@ data:
       groups:
         - system:bootstrappers
         - system:nodes
+  mapUsers: | 
+    - userarn: arn:aws:iam::197566228641:user/Jenkins 
+      username: designated_user 
+      groups: 
+        - system:masters
