@@ -14,5 +14,19 @@ pipeline {
 				sh 'hadolint Dockerfile'
 			}
 		}
+		stage('Build & publish Docker image') {
+			environment {
+        registryCredential = 'dockerhub'
+      }
+			steps{
+				script {
+					def app_image = docker.build registry + ":$BUILD_NUMBER"
+					docker.withRegistry('', registryCredential ) {
+						app_image.push()
+						app_image.push('latest')
+					}
+				}
+			}        
+		}
 	}
 }
