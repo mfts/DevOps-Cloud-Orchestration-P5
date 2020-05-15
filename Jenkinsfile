@@ -34,11 +34,10 @@ pipeline {
 					sh "aws eks --region eu-central-1 update-kubeconfig --name UdacityCapstoneMFTS-EKS"
 					sh "kubectl apply -f k8s/aws-auth-cm.yaml"
           sh "kubectl apply -f k8s/app-deployment.yml"
+          sh "kubectl apply -f k8s/service.yml"
 					sh "kubectl set image deployments/jitsi-meet jitsi-meet=${registry}:latest"
-					// sh "./update.sh eks-nodes-mfts k8s/nodes.yml k8s/nodes-params.json"
           sh "kubectl get nodes"
 					sh "kubectl get pods"
-          sh "kubectl apply -f k8s/service.yml"
 				}
 			}
 		}
