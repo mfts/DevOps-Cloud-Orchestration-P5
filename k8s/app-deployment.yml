@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jitsi-meet
+  labels:
+    app: jitsi-meet
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: jitsi-meet
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: jitsi-meet
+    spec:
+      containers:
+      - image: mfts/jitsi-meet-client:latest
+        imagePullPolicy: Always
+        name: jitsi-meet
+        ports:
+        - containerPort: 3000
+          protocol: TCP
