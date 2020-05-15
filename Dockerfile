@@ -6,7 +6,7 @@ WORKDIR /app
 
 # add app
 COPY . ./
-
+THIS IS FOR LINTING ERROR
 # install app dependencies
 RUN yarn
 
