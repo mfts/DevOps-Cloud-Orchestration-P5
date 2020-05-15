@@ -37,7 +37,7 @@ pipeline {
 					sh "kubectl set image deployments/jitsi-meet jitsi-meet=${registry}:latest"
 					sh "kubectl get nodes"
 					sh "kubectl get pods"
-					sh "./update.sh eks-udacity-nodes k8s/nodes.yml k8s/nodes-params.json"
+					sh "./update.sh eks-nodes-mfts k8s/nodes.yml k8s/nodes-params.json"
 				}
 			}
 		}
