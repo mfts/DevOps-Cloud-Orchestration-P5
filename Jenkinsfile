@@ -37,7 +37,7 @@ pipeline {
 					sh "kubectl apply -f k8s/app-deployment.yml"
 					sh "kubectl get nodes"
 					sh "kubectl get pods"
-					sh "../update.sh eks-udacity-nodes aws/nodes.yml aws/nodes-params.json"
+					sh "../update.sh eks-udacity-nodes k8s/nodes.yml k8s/nodes-params.json"
 				}
 			}
 		}
