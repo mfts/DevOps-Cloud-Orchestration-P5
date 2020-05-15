@@ -1,0 +1,14 @@
+[
+  {
+    "ParameterKey": "EnvironmentName",
+    "ParameterValue": "UdacityCapstoneMFTS"
+  },
+  {
+    "ParameterKey": "SshKey",
+    "ParameterValue": "udacity-devops-capstone-mfts"
+  },
+  {
+    "ParameterKey":"Instances",
+    "ParameterValue": "3"
+  }
+]
